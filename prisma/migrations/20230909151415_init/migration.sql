@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "URL" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "fullURL" TEXT NOT NULL,
+    "shortURL" TEXT NOT NULL
+);
