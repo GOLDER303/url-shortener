@@ -2,9 +2,31 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Document</title>
+    <title>URL Shortener</title>
   </head>
   <body>
-    {{message}}
+    <h1>URL Shortener</h1>
+    <form action='/shortURLs' method='post'>
+      <label for='fullURL'>URL: </label>
+      <input type='url' name='fullURL' id='fullURL' />
+      <button type='submit'>Shorten</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Full URL</th>
+          <th>Short URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each urls}}
+          <tr>
+            <th>{{this.fullURL}}</th>
+            <th>{{this.shortURL}}</th>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </body>
 </html>
