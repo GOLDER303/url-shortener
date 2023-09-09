@@ -7,8 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model URL {
+model Url {
   id       Int    @id @default(autoincrement())
-  fullURL  String
-  shortURL String
+  fullURL  String @unique
+  shortURL String @unique
 }
