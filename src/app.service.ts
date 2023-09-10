@@ -11,6 +11,10 @@ export class AppService {
     return await this.prisma.url.findMany();
   }
 
+  async getURL(shortURL: string) {
+    return await this.prisma.url.findUnique({ where: { shortURL } });
+  }
+
   async createShortURL(fullURL: string): Promise<Url> {
     return await this.prisma.url.create({
       data: {
