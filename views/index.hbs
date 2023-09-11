@@ -24,8 +24,14 @@
       <tbody>
         {{#each urls}}
           <tr>
-            <th><a href='{{this.fullURL}}'>{{this.fullURL}}</a></th>
-            <th><a href='/redirect/{{this.shortURL}}'>{{this.shortURL}}</a></th>
+            <th><a
+                href='{{this.fullURL}}'
+                target='_blank'
+              >{{this.fullURL}}</a></th>
+            <th><a
+                href='/redirect/{{this.shortURL}}'
+                target='_blank'
+              >{{this.shortURL}}</a></th>
           </tr>
         {{/each}}
       </tbody>
