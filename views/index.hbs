@@ -6,35 +6,52 @@
 
     <link rel='stylesheet' href='css/styles.css' />
   </head>
-  <body>
-    <h1>URL Shortener</h1>
-    <form action='/shortURLs' method='post'>
-      <label for='fullURL'>URL: </label>
-      <input type='url' name='fullURL' id='fullURL' />
-      <button type='submit'>Shorten</button>
-    </form>
+  <body class='bg-neutral-800 text-white'>
+    <div class='container m-auto flex flex-col items-center'>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Full URL</th>
-          <th>Short URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each urls}}
+      <h1 class='mt-10 text-4xl font-bold'>URL Shortener</h1>
+
+      <form
+        action='/shortURLs'
+        method='post'
+        class='my-14 w-4/5 flex items-center justify-center'
+      >
+        <label for='fullURL' class='sr-only'>URL: </label>
+        <input
+          type='url'
+          name='fullURL'
+          id='fullURL'
+          placeholder='URL:'
+          class='block w-2/4 px-2 py-4 text-black rounded-l text-xl'
+        />
+        <button
+          type='submit'
+          class='block px-10 py-4 bg-green-600 rounded-r text-xl'
+        >Shorten</button>
+      </form>
+
+      <table class='text-lg'>
+        <thead>
           <tr>
-            <th><a
-                href='{{this.fullURL}}'
-                target='_blank'
-              >{{this.fullURL}}</a></th>
-            <th><a
-                href='/redirect/{{this.shortURL}}'
-                target='_blank'
-              >{{this.shortURL}}</a></th>
+            <th>Full URL</th>
+            <th>Short URL</th>
           </tr>
-        {{/each}}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {{#each urls}}
+            <tr>
+              <th><a
+                  href='{{this.fullURL}}'
+                  target='_blank'
+                >{{this.fullURL}}</a></th>
+              <th><a
+                  href='/redirect/{{this.shortURL}}'
+                  target='_blank'
+                >{{this.shortURL}}</a></th>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
