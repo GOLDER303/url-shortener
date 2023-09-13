@@ -6,7 +6,7 @@
 
     <link rel='stylesheet' href='css/styles.css' />
   </head>
-  <body class='bg-neutral-800 text-white'>
+  <body class='bg-neutral-800 text-neutral-200'>
     <div class='container m-auto flex flex-col items-center'>
 
       <h1 class='mt-10 text-4xl font-bold'>URL Shortener</h1>
@@ -22,7 +22,7 @@
           name='fullURL'
           id='fullURL'
           placeholder='URL:'
-          class='block w-2/4 px-2 py-4 text-black rounded-l text-xl'
+          class='block w-2/4 px-2 py-4 text-xl text-black bg-neutral-200 rounded-l'
         />
         <button
           type='submit'
@@ -30,21 +30,23 @@
         >Shorten</button>
       </form>
 
-      <table class='text-lg'>
-        <thead>
-          <tr>
-            <th>Full URL</th>
-            <th>Short URL</th>
+      <table class='text-lg border-collapse'>
+        <thead class='bg-neutral-700'>
+          <tr class='text-2xl border-b-4 border-neutral-800'>
+            <th class='p-5'>Full URL</th>
+            <th class='p-5'>Short URL</th>
           </tr>
         </thead>
         <tbody>
           {{#each urls}}
-            <tr>
-              <th><a
+            <tr
+              class='odd:bg-neutral-600 even:bg-neutral-700 hover:bg-neutral-800 border-y-4 border-neutral-800'
+            >
+              <th class='p-5'><a
                   href='{{this.fullURL}}'
                   target='_blank'
                 >{{this.fullURL}}</a></th>
-              <th><a
+              <th class='p-5'><a
                   href='/redirect/{{this.shortURL}}'
                   target='_blank'
                 >{{this.shortURL}}</a></th>
